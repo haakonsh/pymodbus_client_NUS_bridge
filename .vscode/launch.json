@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "nrf-connect",
+            "request": "launch",
+            "name": "Launch the active build configuration",
+            "config": "${activeConfig}",
+            "runToEntryPoint": "main",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                
+            ],
+            "postRemoteConnectCommands": [
+                {
+                    "description": "Enable J-Link debug monitor mode for gdb",
+                    "text": "monitor exec SetMonModeDebug=1",
+                    "ignoreFailures": false
+                }
+            ]
+        }
+    ]
+}
